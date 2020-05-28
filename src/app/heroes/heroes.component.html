@@ -1,0 +1,62 @@
+<!-- String -->
+<!-- <h1>{{hero}}</h1> -->
+
+<!-- interFace带来的obj -->
+<!-- pipe格式化数据 -->
+<!-- <h2>{{hero.name | uppercase}} Detials</h2>
+<div><span>id:</span>{{hero.id}}</div>
+<div><span>name:</span>{{hero.name}}</div>
+<div>
+  <label for="">
+    name:
+    ngModel双向绑定数据
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div> -->
+
+<h2>My Heroes</h2>
+<!-- 默认展示 -->
+<!-- <ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)"
+  >
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul> -->
+
+
+<!-- <div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id:</span>{{selectedHero.id}}</div>
+  <div>
+    <label for="">
+      name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name" />
+    </label>
+  </div>
+</div> -->
+
+<!-- 将内容抽出成组件 -->
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+
+<!-- 添加英雄 -->
+<div>
+  <label>
+    Hero name:
+    <!-- #heroName用来指定特定容器,angular自带快捷选择器 -->
+    <input #heroName  />
+  </label>
+  <button (click)="add(heroName.value); heroName.value = ''">add</button>
+</div>
+
+<!-- 交互跳转 -->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <!-- 删除英雄 -->
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+  </li>
+</ul>
